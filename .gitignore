@@ -1,2 +1,8 @@
 bin/*
+lib/*
 !*/**.gitkeep
+
+CMakeCache.txt
+CMakeFiles
+Makefile
+cmake_install.cmake
