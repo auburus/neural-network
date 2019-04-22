@@ -9,16 +9,22 @@ using namespace std;
 
 class Layer
 {
-    vector<vector<double>> weights_;
-    string activation_function_name_ = "const";
-
     public:
         vector<double> feedForward(vector<double> const& in);
 
         void setWeights(vector<vector<double>>& weights); 
 
     protected:
+        vector<vector<double>> weights_;
+        string activation_function_name_ = "const";
+
         function<double (double)> getActivationFunction();
+};
+
+class InputLayer : public Layer
+{
+    public:
+        InputLayer(size_t input_dimension);
 };
 
 #endif

@@ -12,14 +12,11 @@ using namespace std;
     - b is the bias vector
 
   For convenience, `b` is considered the last column of `W`, so `W` has one
-  more column and one more row:
+  more column than necessary (it technically doesn't match);
 
    (       | b1 ) ( in1 )   ( out1 )
    (   W   | b2 ) ( in2 ) = ( out2 )
    (       | b3 ) ( in3 )   ( out3 )
-   ( 0 0 0 | 1  ) (  1  )   (   1  )
-
-   The Model class already sets up everything so W and in are in the "expanded" form.
 
     Warning: This method DOES NOT check that the dimensions match.
     TODO: It probably should.
@@ -35,6 +32,11 @@ vector<double> Layer::feedForward(vector<double> const& in)
         {
             out[i] += weights_[i][j] * in[j];
         }
+
+        // Add the last column, b
+        out[i] += weights_[i][in.size()];
+
+
         out[i] = activation_function(out[i]);
     }
 
@@ -57,3 +59,15 @@ void Layer::setWeights(vector<vector<double>>& weights)
 {
     weights_ = weights;
 }
+
+InputLayer::InputLayer(size_t input_dimension)
+{
+    weights_ = vector<vector<double>> 
+        (input_dimension, vector<double> (input_dimension + 1, 0));
+
+    for (size_t i = 0; i < input_dimension; i++)
+    {
+        weights_[i][i] = 1;
+    }
+}
+

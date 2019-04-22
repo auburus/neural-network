@@ -28,10 +28,10 @@ install(TARGETS neural_network DESTINATION ./bin)
 
 
 # Test files
-add_executable(nn_tests ${sources_test} ${sources})
+add_executable(unit_tests ${sources_test} ${sources})
 
-target_include_directories(nn_tests PUBLIC "src/main" "include")
+target_include_directories(unit_tests PUBLIC "src/main" "include")
 
-install(TARGETS nn_tests DESTINATION ./bin)
+install(TARGETS unit_tests DESTINATION ./bin)
 
-add_test(nn_tests "./bin/nn_tests")
+add_test(unit_tests "./bin/nn_tests")
