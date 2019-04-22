@@ -6,15 +6,17 @@
 #include <memory>
 #include <Layer.h>
 
+using namespace std;
+
 class Model
 {
 
-    std::list<std::shared_ptr<Layer>> layers = {};
+    list<shared_ptr<Layer>> layers_ = {};
 
     public:
-        void addLayer(std::shared_ptr<Layer> layer);
+        void addLayer(shared_ptr<Layer> layer);
 
-        std::vector<int> feedForward(const std::vector<int> &input);
+        vector<double> feedForward(vector<double> const& input);
 };
 
 #endif

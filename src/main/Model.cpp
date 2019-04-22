@@ -1,15 +1,17 @@
 #include <Model.h>
 
-void Model::addLayer(std::shared_ptr<Layer> layer)
+using namespace std;
+
+void Model::addLayer(shared_ptr<Layer> layer)
 {
-    layers.push_back(layer);
+    layers_.push_back(layer);
 }
 
-std::vector<int> Model::feedForward(std::vector<int> const& input)
+vector<double> Model::feedForward(vector<double> const& input)
 {
-    std::vector<int> output = input;
+    vector<double> output = input;
 
-    for(auto& layer: layers)
+    for(auto& layer: layers_)
     {
         output = layer->feedForward(output);
     }
