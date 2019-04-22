@@ -6,7 +6,7 @@
 class Layer
 {
     public:
-        std::vector<double> feedForward(std::vector<double> &in);
+        std::vector<int> feedForward(std::vector<int> &in);
 };
 
 #endif

@@ -2,7 +2,10 @@ bin/*
 lib/*
 !*/**.gitkeep
 
+#CMake auto-generated files
 CMakeCache.txt
 CMakeFiles
 Makefile
 cmake_install.cmake
+Testing
+CTestTestfile.cmake
