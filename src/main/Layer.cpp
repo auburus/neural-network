@@ -43,6 +43,14 @@ vector<double> Layer::feedForward(vector<double> const& in)
     return out;
 }
 
+void Layer::setWeights(vector<vector<double>>& weights)
+{
+    weights_ = weights;
+}
+
+
+//TODO Move activation functions into its own class with static methods
+//that return the functions.
 function<double (double)> Layer::getActivationFunction()
 {
     if (activation_function_name_ == "const")
@@ -53,11 +61,6 @@ function<double (double)> Layer::getActivationFunction()
     throw invalid_argument("Function " + activation_function_name_ +
             " is not a valid activation function name");
 
-}
-
-void Layer::setWeights(vector<vector<double>>& weights)
-{
-    weights_ = weights;
 }
 
 InputLayer::InputLayer(size_t input_size)
