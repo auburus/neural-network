@@ -27,4 +27,13 @@ class InputLayer : public Layer
         InputLayer(size_t input_dimension);
 };
 
+
+class HiddenLayer : public Layer
+{
+    size_t n_nodes_;
+
+    public:
+        HiddenLayer(size_t n_nodes, string activation_function_name);
+
+}
 #endif

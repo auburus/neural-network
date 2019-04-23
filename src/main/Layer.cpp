@@ -60,14 +60,17 @@ void Layer::setWeights(vector<vector<double>>& weights)
     weights_ = weights;
 }
 
-InputLayer::InputLayer(size_t input_dimension)
+InputLayer::InputLayer(size_t input_size)
 {
     weights_ = vector<vector<double>> 
-        (input_dimension, vector<double> (input_dimension + 1, 0));
+        (input_size, vector<double> (input_size + 1, 0));
 
-    for (size_t i = 0; i < input_dimension; i++)
+    for (size_t i = 0; i < input_size; i++)
     {
         weights_[i][i] = 1;
     }
 }
 
+HiddenLayer(size_t n_nodes, string activation_function_name)
+    : n_nodes_(n_nodes), activation_function_name_(activation_function_name)
+{}
